@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  </head>
+  <body>
+
+<table class='table'>
+
+<p id="notice"><%= notice %></p>
+
+<tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>otro</th>
+      </tr>
+
+
+<td> <%= @product.name %> </td>
+<td>  <%= @product.price %></td>
+
+</table>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+ <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>categoria</th>
+    </tr>
+  </thead>
+ 
+
+  <tbody>
+    
+           <% @products.each do |product| %>
+      <tr>
+
+  
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.categories.pluck(:name).join(",") %></td>
+       
+        <td><%= link_to 'Editar', edit_product_path(product) %></td>
+        <td><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+       <% end %>
+     </tbody>
+      </table>
+   
+  <br>
+</div>
+</body>
+</html>
+<%= link_to 'New Product', new_product_path %>
